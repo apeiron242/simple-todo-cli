@@ -1,4 +1,4 @@
-module github.com/apeiron242/go-reminder-cli
+module github.com/apeiron242/simple-todo-cli
 
 go 1.16
 

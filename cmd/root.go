@@ -29,7 +29,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "go-reminder-cli",
+	Use:   "simple-todo-cli",
 	Short: "Write your reminders in cli",
 	// Uncomment the following line if your bare application
 	// has an action associated with it:

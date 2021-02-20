@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/apeiron242/go-reminder-cli/cmd"
+import "github.com/apeiron242/simple-todo-cli/cmd"
 
 func main() {
 	cmd.Execute()
