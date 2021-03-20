@@ -16,6 +16,6 @@ Clone this repository and run `go install`
 
 - get lists of todos
 
-### delete
+### rm
 
 - delete todo

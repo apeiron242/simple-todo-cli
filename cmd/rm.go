@@ -26,7 +26,7 @@ import (
 
 // deleteCmd represents the delete command
 var deleteCmd = &cobra.Command{
-	Use:   "delete",
+	Use:   "rm",
 	Short: "delete reminder",
 	Run: func(cmd *cobra.Command, args []string) {
 		deleteData(args)
