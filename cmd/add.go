@@ -38,7 +38,7 @@ func addReminder(args []string) {
 	CheckErr(err)
 	findDir(fileList)
 
-	os.Create("./data/" + strings.Join(args, ""))
+	os.Create("./data/" + strings.Join(args, " "))
 }
 
 func findDir(dir []fs.DirEntry) bool {

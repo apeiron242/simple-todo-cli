@@ -34,11 +34,10 @@ var deleteCmd = &cobra.Command{
 }
 
 func deleteData(args []string) {
-	value := strings.Join(args, "")
+	value := strings.Join(args, " ")
 	fileList, err := os.ReadDir("./data")
 	CheckErr(err)
 	find(fileList, value)
-
 }
 
 func find(dir []fs.DirEntry, args string) bool {

@@ -37,7 +37,7 @@ func readDir() {
 	CheckErr(err)
 
 	if len(fileList) == 0 {
-		fmt.Println("No data")
+		fmt.Println("No data has been saved")
 	} else {
 		fmt.Println("Your Data\n")
 	}
