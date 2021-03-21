@@ -42,12 +42,13 @@ func readDir() {
 	if len(fileList) == 0 {
 		fmt.Println("No data has been saved")
 	} else {
-		fmt.Println("Your Data\n")
+		fmt.Println("\n" + usr.Username + "'s Memo\n")
 	}
 
 	for i, f := range fileList {
 		fmt.Println(strconv.Itoa(i+1) + ": " + f.Name())
 	}
+	fmt.Println("")
 }
 
 func init() {
