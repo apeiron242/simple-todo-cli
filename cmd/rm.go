@@ -35,8 +35,10 @@ var deleteCmd = &cobra.Command{
 }
 
 func deleteData(args []string) {
+	usr, err := user.Current()
+	CheckErr(err)
 	value := strings.Join(args, " ")
-	fileList, err := os.ReadDir("./todo-data")
+	fileList, err := os.ReadDir(usr.HomeDir + "/todo-data")
 	CheckErr(err)
 	find(fileList, value)
 }
