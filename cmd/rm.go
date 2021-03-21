@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"io/fs"
 	"os"
+	"os/user"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -35,16 +36,18 @@ var deleteCmd = &cobra.Command{
 
 func deleteData(args []string) {
 	value := strings.Join(args, " ")
-	fileList, err := os.ReadDir("./data")
+	fileList, err := os.ReadDir("./todo-data")
 	CheckErr(err)
 	find(fileList, value)
 }
 
 func find(dir []fs.DirEntry, args string) bool {
+	usr, err := user.Current()
+	CheckErr(err)
 
 	for _, f := range dir {
 		if f.Name() == args {
-			err := os.Remove("./data/" + args)
+			err := os.Remove(usr.HomeDir + "/todo-data/" + args)
 			CheckErr(err)
 			return true
 		}

@@ -19,6 +19,7 @@ import (
 	"io/fs"
 	"log"
 	"os"
+	"os/user"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -34,20 +35,22 @@ var addCmd = &cobra.Command{
 }
 
 func addReminder(args []string) {
-	fileList, err := os.ReadDir("./")
+	usr, err := user.Current()
 	CheckErr(err)
-	findDir(fileList)
+	fileList, err := os.ReadDir(usr.HomeDir)
+	CheckErr(err)
+	findDir(fileList, usr)
 
-	os.Create("./data/" + strings.Join(args, " "))
+	os.Create(usr.HomeDir + "/todo-data/" + strings.Join(args, " "))
 }
 
-func findDir(dir []fs.DirEntry) bool {
+func findDir(dir []fs.DirEntry, usr *user.User) bool {
 	for _, f := range dir {
 		if f.Name() == "data" {
 			return true
 		}
 	}
-	os.Mkdir("data", 0755)
+	os.Mkdir(usr.HomeDir+"/todo-data", 0755)
 	return false
 }
 

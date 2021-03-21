@@ -18,6 +18,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"os/user"
 	"strconv"
 
 	"github.com/spf13/cobra"
@@ -33,7 +34,9 @@ var getCmd = &cobra.Command{
 }
 
 func readDir() {
-	fileList, err := os.ReadDir("./data")
+	usr, err := user.Current()
+	CheckErr(err)
+	fileList, err := os.ReadDir(usr.HomeDir + "/todo-data")
 	CheckErr(err)
 
 	if len(fileList) == 0 {
